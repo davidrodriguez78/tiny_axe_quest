@@ -12,23 +12,24 @@ class Game:
         # groups
 
         #objects
-        
+
     def run(self):
         while self.running:
             # delta time
             dt = self.clock.tick(60) / 1000
+
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     self.running = False
 
-        # update
+            # update
 
-        # draw
+            # draw
 
-        # display update
-        pygame.display.update()
-    pygame.quit()
-    sys.exit()
+            # display update
+            pygame.display.update()
+        pygame.quit()
+        sys.exit()
 
 # Game object
 if __name__ == "__main__":
