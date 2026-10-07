@@ -1,5 +1,5 @@
 from setting import *
-
+from player import Player
 # Game class
 class Game:
     def __init__(self):
@@ -10,9 +10,9 @@ class Game:
         self.running = True
 
         # groups
-
+        self.all_sprites_groups = pygame.sprite.Group()
         #objects
-
+        self.player = Player(pygame.Vector2(WINDOWS_WIDHT / 2, WINDOWS_HEIGTH /2), self.all_sprites_groups)
     def run(self):
         while self.running:
             # delta time
@@ -25,7 +25,7 @@ class Game:
             # update
 
             # draw
-
+            self.all_sprites_groups.draw(self.display_surface)
             # display update
             pygame.display.update()
         pygame.quit()
