@@ -20,7 +20,7 @@ class Player(pygame.sprite.Sprite):
         self.image = self.idle[self.frame_index]
         self.rect =self.image.get_frect(center = pos)
         self.moveing = False
-        self.speed = 100
+        self.speed = 80
         self.animation_timer = 0
 
     def animate(self, dt):
