@@ -4,7 +4,7 @@ from player import Player
 class Game:
     def __init__(self):
         pygame.init()
-        self.display_surface = pygame.display.set_mode((WINDOWS_WIDHT, WINDOWS_HEIGTH), pygame.SCALED)
+        self.display_surface = pygame.display.set_mode((WINDOWS_WIDHT, WINDOWS_HEIGTH))
         pygame.display.set_caption(GAME_TITLE)
         self.clock = pygame.time.Clock()
         self.running = True
@@ -21,7 +21,7 @@ class Game:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     self.running = False
-            self.display_surface.fill("black")
+            self.display_surface.fill("darkgrey")
             # update
             self.all_sprites_groups.update(dt)
             # draw
