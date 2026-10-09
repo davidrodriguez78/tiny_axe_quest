@@ -4,7 +4,7 @@ from player import Player
 class Game:
     def __init__(self):
         pygame.init()
-        self.display_surface = pygame.display.set_mode((WINDOWS_WIDHT, WINDOWS_HEIGTH))
+        self.display_surface = pygame.display.set_mode((WINDOWS_WIDHT, WINDOWS_HEIGTH), pygame.SCALED)
         pygame.display.set_caption(GAME_TITLE)
         self.clock = pygame.time.Clock()
         self.running = True
