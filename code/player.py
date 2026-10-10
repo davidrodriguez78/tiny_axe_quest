@@ -2,7 +2,7 @@ from setting import *
 
 # Plpayer class
 class Player(pygame.sprite.Sprite):
-    def __init__(self, pos, groups):
+    def __init__(self, pos, groups, collision_groups):
         super().__init__(groups)
         self.idle = [
             pygame.image.load(join("assets", "playeridle", "0.png")).convert_alpha(),
@@ -19,6 +19,7 @@ class Player(pygame.sprite.Sprite):
         self.direction = pygame.Vector2()
         self.image = self.idle[self.idle_index]
         self.rect = self.image.get_frect(center = pos)
+        self.collision_group = collision_groups
         self.moveing = False
         self.speed = 80
         self.animation_timer = 0
@@ -51,7 +52,8 @@ class Player(pygame.sprite.Sprite):
         else:
             self.idle_anim()
 
-        
+    def collosion(self, direction):
+        pass
     def update(self, dt):
         keys = pygame.key.get_pressed()
 
@@ -74,6 +76,9 @@ class Player(pygame.sprite.Sprite):
         self.direction = self.direction.normalize()if self.direction else self.direction
         self.rect.center += self.direction * self.speed * dt
 
+        # direction
+        self.collosion("horizontal")
+        self.collosion("vertical")
         # movement
         if self.direction.length() > 0:
             self.moveing = True
@@ -82,4 +87,5 @@ class Player(pygame.sprite.Sprite):
        
         # animate
         self.animate(dt)
+        
             
